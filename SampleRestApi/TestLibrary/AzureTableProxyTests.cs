@@ -23,6 +23,18 @@ namespace TestLibrary
         }
 
         [TestMethod]
+        public void TestInsert()
+        {
+           // String json;
+            ////3lCJBMsiu5pF3JmZ994HBYy4o2nu6Zb7cM4YfGUnv1DBPg9hCy76kmSp8waBo1KuUORebTjXGH54NwW9pZ3Wmg
+            //// https://samplestorageaccount123.table.core.windows.net/TestTable
+            TableHelper.Insert("samplestorageaccount123",
+                "3lCJBMsiu5pF3JmZ994HBYy4o2nu6Zb7cM4YfGUnv1DBPg9hCy76kmSp8waBo1KuUORebTjXGH54NwW9pZ3Wmg==", "TestTable",
+               "{\"PartitionKey\":\"5\",\"RowKey\":\"8\"}");
+           // Console.WriteLine(json);
+        }
+
+        [TestMethod]
         public void TestMethod2()
         {
            

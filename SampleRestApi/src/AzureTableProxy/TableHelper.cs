@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -34,25 +35,7 @@ namespace AzureTableProxy
             request.Headers.Add("DataServiceVersion", "1.0;NetFx");
 
 
-            // Signature string for  Shared Key Lite Authentication must be in the form
-            // StringToSign = Date + "\n" + CanonicalizedResource
-            // Date 
-            string stringToSign = str + "\n";
-
-            // Canonicalized Resource in the format  /{0}/{1} where 0 is name of the account and 1 is resources URI path
-            // remove the query string
-            int query = resourcePath.IndexOf("?");
-            if (query > 0)
-            {
-                resourcePath = resourcePath.Substring(0, query);
-            }
-            stringToSign += "/" + storageAccount + "/" + resourcePath;
-
-            // Hash-based Message Authentication Code (HMAC) using SHA256 hash
-            System.Security.Cryptography.HMACSHA256 hasher = new System.Security.Cryptography.HMACSHA256(Convert.FromBase64String(accessKey));
-
-            // Authorization header
-            string strAuthorization = "SharedKeyLite " + storageAccount + ":" + System.Convert.ToBase64String(hasher.ComputeHash(System.Text.Encoding.UTF8.GetBytes(stringToSign)));
+            var strAuthorization = GetAuthString(storageAccount, accessKey, resourcePath, str);
 
             // Add the Authorization header to the request
             request.Headers.Add("Authorization", strAuthorization);
@@ -85,6 +68,60 @@ namespace AzureTableProxy
             HttpResponseMessage response = client.SendAsync(request).Result;
             var content = response.Content.ReadAsStringAsync().Result;
             jsonData = content;
+        }
+
+        private static string GetAuthString(string storageAccount, string accessKey, string resourcePath, string str)
+        {
+// Signature string for  Shared Key Lite Authentication must be in the form
+            // StringToSign = Date + "\n" + CanonicalizedResource
+            // Date 
+            string stringToSign = str + "\n";
+
+            // Canonicalized Resource in the format  /{0}/{1} where 0 is name of the account and 1 is resources URI path
+            // remove the query string
+            int query = resourcePath.IndexOf("?", StringComparison.Ordinal);
+            if (query > 0)
+            {
+                resourcePath = resourcePath.Substring(0, query);
+            }
+            stringToSign += "/" + storageAccount + "/" + resourcePath;
+
+            // Hash-based Message Authentication Code (HMAC) using SHA256 hash
+            HMACSHA256 hasher = new HMACSHA256(Convert.FromBase64String(accessKey));
+
+            // Authorization header
+            string strAuthorization = "SharedKeyLite " + storageAccount + ":" +
+                                      System.Convert.ToBase64String(
+                                          hasher.ComputeHash(System.Text.Encoding.UTF8.GetBytes(stringToSign)));
+            return strAuthorization;
+        }
+
+        public static void Insert(string storageAccount, string accessKey, string tableName, string jsonData)
+        {
+                string host = string.Format(@"https://{0}.table.core.windows.net/", storageAccount);
+                string resource = string.Format(@"{0}", tableName);
+                string uri = host + resource;
+
+            HttpClient client = new HttpClient();
+      //      client.DefaultRequestHeaders
+      //.Accept
+      //.Add(new MediaTypeWithQualityHeaderValue("application/json"));//ACCEPT header
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, uri);
+            client.DefaultRequestHeaders.Add("Accept", "application/json;odata=nometadata");
+            String str = DateTime.UtcNow.ToString("R", System.Globalization.CultureInfo.InvariantCulture);
+            request.Headers.Add("x-ms-date", str);
+            request.Headers.Add("x-ms-version", "2015-04-05");
+            request.Headers.Add("Accept-Charset", "UTF-8");
+            request.Headers.Add("MaxDataServiceVersion", "3.0;NetFx");
+            request.Headers.Add("DataServiceVersion", "1.0;NetFx");
+            request.Content =  new StringContent(jsonData, Encoding.UTF8, "application/json");
+
+            var strAuthorization = GetAuthString(storageAccount, accessKey, resource, str);
+
+            request.Headers.Add("Authorization", strAuthorization);
+
+            HttpResponseMessage response = client.SendAsync(request).Result;
+            var content = response.Content.ReadAsStringAsync().Result;
         }
 
 
