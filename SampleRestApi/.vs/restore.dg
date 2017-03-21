@@ -1,2 +1,5 @@
+#:D:\github\serverless-demo-app\SampleRestApi\src\AzureTableProxy\AzureTableProxy.xproj
 #:D:\github\serverless-demo-app\SampleRestApi\TestLibrary\TestLibrary.xproj
 D:\github\serverless-demo-app\SampleRestApi\TestLibrary\TestLibrary.xproj|D:\github\serverless-demo-app\SampleRestApi\src\AzureTableProxy\AzureTableProxy.xproj
+#:D:\github\serverless-demo-app\SampleRestApi\src\WebApplication1\WebApplication1.xproj
+D:\github\serverless-demo-app\SampleRestApi\src\WebApplication1\WebApplication1.xproj|D:\github\serverless-demo-app\SampleRestApi\src\AzureTableProxy\AzureTableProxy.xproj

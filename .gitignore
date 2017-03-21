@@ -49,3 +49,37 @@ SampleRestApi/src/AzureTableProxy/bin/Debug/netstandard1.6/AzureTableProxy.dll
 SampleRestApi/src/AzureTableProxy/bin/Debug/netstandard1.6/AzureTableProxy.dll
 SampleRestApi/src/AzureTableProxy/bin/Debug/netstandard1.6/AzureTableProxy.dll
 *.dll
+SampleRestApi/UnitTestProject1/obj/Release/TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs
+SampleRestApi/UnitTestProject1/obj/Debug/UnitTestProject1.pdb
+SampleRestApi/UnitTestProject1/obj/Release/DesignTimeResolveAssemblyReferencesInput.cache
+SampleRestApi/UnitTestProject1/obj/Release/TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs
+SampleRestApi/UnitTestProject1/obj/Debug/UnitTestProject1.dll
+SampleRestApi/UnitTestProject1/bin/Debug/UnitTestProject1.pdb
+SampleRestApi/UnitTestProject1/bin/Debug/UnitTestProject1.dll
+SampleRestApi/TestLibrary/project.lock.json
+SampleRestApi/TestLibrary/bin/Debug/netcoreapp1.0/TestLibrary.pdb
+SampleRestApi/TestLibrary/bin/Debug/netcoreapp1.0/TestLibrary.dll
+SampleRestApi/TestLibrary/bin/Debug/netcoreapp1.0/TestLibrary.deps.json
+SampleRestApi/TestLibrary/bin/Debug/netcoreapp1.0/AzureTableProxy.pdb
+SampleRestApi/TestLibrary/bin/Debug/netcoreapp1.0/AzureTableProxy.dll
+SampleRestApi/src/WebApplication1/Properties/PublishProfiles/WebApplication120170319022534 - Web Deploy-publish.ps1
+SampleRestApi/src/WebApplication1/Properties/PublishProfiles/WebApplication120170319020937 - Web Deploy-publish.ps1
+SampleRestApi/UnitTestProject1/bin/Debug/UnitTestProject1.dll
+SampleRestApi/UnitTestProject1/bin/Debug/UnitTestProject1.pdb
+SampleRestApi/UnitTestProject1/obj/Debug/UnitTestProject1.dll
+SampleRestApi/UnitTestProject1/obj/Debug/UnitTestProject1.pdb
+SampleRestApi/src/AzureTableProxy/bin/Debug/netstandard1.6/AzureTableProxy.deps.json
+SampleRestApi/src/AzureTableProxy/obj/Debug/netstandard1.6/.IncrementalCache
+SampleRestApi/src/AzureTableProxy/obj/Debug/netstandard1.6/dotnet-compile-csc.rsp
+SampleRestApi/src/AzureTableProxy/obj/Debug/netstandard1.6/dotnet-compile.rsp
+SampleRestApi/src/AzureTableProxy/project.lock.json
+SampleRestApi/src/ClassLibrary1/bin/Debug/netcoreapp1.0/ClassLibrary1.deps.json
+SampleRestApi/src/ClassLibrary1/bin/Debug/netcoreapp1.0/ClassLibrary1.pdb
+SampleRestApi/src/ClassLibrary1/obj/Debug/netcoreapp1.0/.IncrementalCache
+SampleRestApi/src/ClassLibrary1/obj/Debug/netcoreapp1.0/.SDKVersion
+SampleRestApi/src/ClassLibrary1/obj/Debug/netcoreapp1.0/dotnet-compile-csc.rsp
+SampleRestApi/src/ClassLibrary1/obj/Debug/netcoreapp1.0/dotnet-compile.assemblyinfo.cs
+SampleRestApi/src/ClassLibrary1/obj/Debug/netcoreapp1.0/dotnet-compile.rsp
+SampleRestApi/src/SampleRestApi/bin/Debug/netcoreapp1.0/SampleRestApi.dll
+SampleRestApi/src/SampleRestApi/bin/Debug/netcoreapp1.0/SampleRestApi.dll
+SampleRestApi/src/SampleRestApi/bin/Debug/netcoreapp1.0/SampleRestApi.dll

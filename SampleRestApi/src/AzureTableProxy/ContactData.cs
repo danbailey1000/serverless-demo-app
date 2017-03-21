@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace WebApplication1
-{   
+﻿namespace AzureTableProxy
+{
     public class ContactData
     {
         // ReSharper disable once InconsistentNaming
@@ -12,5 +7,8 @@ namespace WebApplication1
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string TelNo { get; set; }
+
+        public string PartitionKey => "1";
+        public string RowKey => ID.ToString();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using AzureTableProxy;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Data;
 
